@@ -1,0 +1,28 @@
+Return the hour from the Start_Time and End_Time columns and convert the hour to the numeric data type
+
+SELECT Trip_ID,
+      EXTRACT(hour FROM Start_Time) :: NUMERIC AS Start_Hour,
+      EXTRACT(hour FROM End_Time) :: NUMERIC AS End_Hour
+FROM bike_trips;
+
+Required. The part to extract. Can be one of the following:
+    MICROSECOND
+    SECOND
+    MINUTE
+    HOUR
+    DAY
+    WEEK
+    MONTH
+    QUARTER
+    YEAR
+    SECOND_MICROSECOND
+    MINUTE_MICROSECOND
+    MINUTE_SECOND
+    HOUR_MICROSECOND
+    HOUR_SECOND
+    HOUR_MINUTE
+    DAY_MICROSECOND
+    DAY_SECOND
+    DAY_MINUTE
+    DAY_HOUR
+    YEAR_MONTH
