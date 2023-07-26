@@ -1,0 +1,7 @@
+Return the pairs of the models without the same id and same launch date
+
+SELECT s1.model, s2.model, s1.price, s2.price
+FROM speaker s1
+join speaker s2
+ON s1.productID <> s2.productID AND 
+       s1.launch = s2.launch;
