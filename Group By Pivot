@@ -28,3 +28,16 @@ LEFT JOIN customers AS c
 ON r.customer_id = c.customer_id
 GROUP BY ROLLUP(c.country, m.genre)
 ORDER BY c.country, m.genre;
+
+
+grouping set
+
+SELECT 
+	c.country, 
+    c.gender,
+	AVG(r.rating)
+FROM renting AS r
+LEFT JOIN customers AS c
+ON r.customer_id = c.customer_id
+-- Report all info from a Pivot table for country and gender
+GROUP BY GROUPING SETS ((c.country, c.gender), (c.country), (c.gender), ());
